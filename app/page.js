@@ -4,11 +4,11 @@ import Link from "next/link";
 export default async function Home() {
   const blogs = await getPostData();
   return (
-    <div className="w-11/12 mx-auto pt-10 pb-10 flex flex-col items-center">
+    <div className="w-11/12 md:w-11/12 lg:w-11/12 xl:container mx-auto pt-10 pb-10 flex flex-col items-center">
       <h1 className="font-semibold text-3xl text-center">
         Welcome to my blog!
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-7">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-7">
         {blogs.slice(0, 20).map((blog) => (
           <div className="" key={blog.id}>
             <Link href={`/all-blogs/${blog.id}`}>
