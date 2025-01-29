@@ -1,5 +1,10 @@
 import SearchComponent from "../components/SearchComponent";
+import styles from "./style.module.css";
 
+export const metadata = {
+  title: "All Meals",
+  description: "fetch all meals from the meals database",
+};
 const AllMeals = async ({ searchParams }) => {
   const query = await searchParams;
   const fetchMeals = async () => {
@@ -14,6 +19,7 @@ const AllMeals = async ({ searchParams }) => {
     }
   };
   const meals = await fetchMeals();
+
   return (
     <div className="w-11/12 md:w-11/12 lg:w-11/12 xl:container mx-auto pt-10 pb-10 flex flex-col items-center justify-center">
       <SearchComponent></SearchComponent>
@@ -25,7 +31,7 @@ const AllMeals = async ({ searchParams }) => {
               className="w-full h-32  object-cover rounded-lg"
             />
             <div className="flex items-center justify-between mt-2">
-              <h3 className="font-semibold text-lg text-gray-800">
+              <h3 className={`font-semibold text-lg ${styles?.title}`}>
                 {meal?.strMeal}
               </h3>
               <span className="text-xs bg-green-100 text-green-600 px-2 rounded-full">

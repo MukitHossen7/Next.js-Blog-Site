@@ -1,6 +1,9 @@
 import { getPostData } from "@/api/getPostBlog";
 import Link from "next/link";
-
+export const metadata = {
+  title: "All Blog",
+  description: "fetch all blog in the json placeholder post data",
+};
 const AllBlogs = async () => {
   const allBlogs = await getPostData();
   return (

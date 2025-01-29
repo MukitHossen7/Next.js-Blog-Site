@@ -1,6 +1,9 @@
 import { getPostData } from "@/api/getPostBlog";
 import Link from "next/link";
-
+export const metadata = {
+  title: "Home | DBlog",
+  description: "This is our home page",
+};
 export default async function Home() {
   const blogs = await getPostData();
   return (
