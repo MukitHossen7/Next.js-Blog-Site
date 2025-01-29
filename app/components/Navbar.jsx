@@ -22,6 +22,9 @@ const Navbar = () => {
           <Link href="/all-blogs">
             <li>All Blogs</li>
           </Link>
+          <Link href="/all-meals">
+            <li>All Meals</li>
+          </Link>
         </ul>
       </nav>
     </div>
