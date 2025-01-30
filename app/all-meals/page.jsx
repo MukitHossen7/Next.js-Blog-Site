@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SearchComponent from "../components/SearchComponent";
 import styles from "./style.module.css";
+import Image from "next/image";
 
 export const metadata = {
   title: "All Meals",
@@ -29,10 +30,15 @@ const AllMeals = async ({ searchParams }) => {
           <div key={meal?.idMeal} className="bg-gray-200 p-3 rounded-md">
             <Link href={`/all-meals/${meal.idMeal}`}>
               <div>
-                <img
-                  src={meal?.strMealThumb}
-                  className="w-full h-32  object-cover rounded-lg"
-                />
+                <div>
+                  <Image
+                    src={meal?.strMealThumb}
+                    alt={meal?.strMeal}
+                    width={600}
+                    height={600}
+                    className="w-full h-32  object-cover rounded-lg"
+                  />
+                </div>
                 <div className="flex items-center justify-between mt-2">
                   <h3 className={`font-semibold text-lg ${styles?.title}`}>
                     {meal?.strMeal}
