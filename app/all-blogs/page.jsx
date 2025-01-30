@@ -1,3 +1,8 @@
+import { Poppins } from "next/font/google";
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 import { getPostData } from "@/api/getPostBlog";
 import Link from "next/link";
 export const metadata = {
@@ -7,7 +12,9 @@ export const metadata = {
 const AllBlogs = async () => {
   const allBlogs = await getPostData();
   return (
-    <div className="w-11/12 md:w-11/12 lg:w-11/12 lg:container mx-auto pt-10 pb-10">
+    <div
+      className={`w-11/12 md:w-11/12 lg:w-11/12 lg:container mx-auto pt-10 pb-10 ${poppins.className}`}
+    >
       <h2 className="font-semibold text-3xl text-center">All Blogs Page</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-7">
         {allBlogs.map((blog) => (
