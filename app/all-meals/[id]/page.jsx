@@ -1,8 +1,21 @@
 import React from "react";
-
+export async function generateMetadata({ params }) {
+  const id = (await params).id;
+  const meal = async () => {
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+    );
+    const data = await res.json();
+    return data.meals;
+  };
+  const [mealData] = await meal();
+  return {
+    title: mealData?.strMeal,
+    description: mealData?.strInstructions,
+  };
+}
 const MealsDetails = async ({ params }) => {
   const { id } = await params;
-  console.log(id);
   const meal = async () => {
     const res = await fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`

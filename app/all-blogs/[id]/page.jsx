@@ -1,5 +1,14 @@
 import { getPostData } from "@/api/getPostBlog";
 
+export async function generateMetadata({ params }) {
+  const id = (await params).id;
+  const blogData = await getPostData();
+  const blog = blogData.find((blog) => blog.id === parseInt(id));
+  return {
+    title: blog?.title,
+    description: blog?.body,
+  };
+}
 const BlogDetails = async ({ params }) => {
   const { id } = await params;
   const blogData = await getPostData();
