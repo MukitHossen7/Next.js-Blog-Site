@@ -7,6 +7,7 @@ const Footer = () => {
       {/* this added from rokib shuvo  */}
       <h2>this line written by rokib </h2>
       <h5>changing for second time </h5>
+      <p>Mukit</p>
     </div>
   );
 };
